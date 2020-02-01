@@ -1,0 +1,8 @@
+Breakfast & Brunch;American (Traditional);Restaurants
+Sandwiches;Restaurants
+Local Services;IT Services & Computer Repair
+Restaurants;Italian
+Food;Coffee & Tea
+Fast Food;Restaurants
+Mortgage Brokers;Home Services;Real Estate
+Brasseries;Restaurants
