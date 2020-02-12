@@ -18,4 +18,6 @@ def create_term_set(items) -> [frozenset]:
             if not [item] in term_set:
                 term_set.append([item])
 
-    print(term_set)
+    term_set.sort()
+    
+    return list(map(frozenset, term_set))

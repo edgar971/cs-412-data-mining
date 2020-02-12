@@ -30,5 +30,4 @@ def test_create_term_set():
     items = read_file(file_path)
     parsed_items = parse_items(items)
 
-    create_term_set(parsed_items)
-    assert False
+    assert len(create_term_set(parsed_items)) == 14
