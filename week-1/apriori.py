@@ -1,3 +1,6 @@
+import math
+
+
 def read_file(filepath) -> [str]:
     rows = []
     with open(filepath) as fp:
@@ -11,13 +14,39 @@ def parse_items(items) -> [[str]]:
     return [item.split(";") for item in items]
 
 
-def create_term_set(items) -> [frozenset]:
+def create_term_set(items) -> []:
     term_set = []
     for transaction in items:
         for item in transaction:
-            if not [item] in term_set:
-                term_set.append([item])
+            if not item in term_set:
+                term_set.append(item)
 
     term_set.sort()
-    
-    return list(map(frozenset, term_set))
+
+    return list(term_set)
+
+
+def scan(dataset, candidate_set, min_support):
+    dataset_size = float(len(dataset))
+    threshold = math.floor(dataset_size * min_support)
+    support_counts = {}
+    support_data = {}
+
+    for transaction in dataset:
+        for candidate in candidate_set:
+            if candidate in transaction:
+                if candidate in support_counts:
+                    support_counts[candidate] += 1
+                else:
+                    support_counts[candidate] = 1
+
+    for item in support_counts:
+        if support_counts[item] > threshold:
+            support_data[item] = support_counts[item]
+
+    sorted_vals = {
+        k: v
+        for k, v in sorted(support_data.items(), key=lambda item: item[1], reverse=True)
+    }
+
+    return sorted_vals

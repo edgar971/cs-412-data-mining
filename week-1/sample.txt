@@ -1,5 +1,5 @@
 Breakfast & Brunch;American (Traditional);Restaurants
-Sandwiches;Restaurants
+Brasseries;Restaurants
 Local Services;IT Services & Computer Repair
 Restaurants;Italian
 Food;Coffee & Tea
