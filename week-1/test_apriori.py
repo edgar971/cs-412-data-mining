@@ -4,6 +4,7 @@ file_path = "./sample.txt"
 
 #
 # https://adataanalyst.com/machine-learning/apriori-algorithm-python-3-0/
+# http://www.codeding.com/articles/apriori-algorithm
 #
 
 
