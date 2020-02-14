@@ -1,4 +1,7 @@
 import math
+import pandas as pd
+from mlxtend.preprocessing import TransactionEncoder
+from mlxtend.frequent_patterns import apriori
 
 
 def read_file(filepath) -> [str]:
@@ -24,6 +27,14 @@ def create_term_set(items) -> []:
     term_set.sort()
 
     return list(term_set)
+
+
+def apriori_gen(dataset, min_support):
+    encoder = TransactionEncoder()
+    te_ary = encoder.fit(dataset).transform(dataset)
+    df = pd.DataFrame(te_ary, columns=encoder.columns_)
+
+    apriori(df, min_support=min_support, use_colnames=True).to_csv("test.csv")
 
 
 def scan(dataset, candidate_set, min_support):

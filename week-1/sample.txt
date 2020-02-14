@@ -1,8 +1,10 @@
-Breakfast & Brunch;American (Traditional);Restaurants
+Brasseries;American (Traditional);Restaurants
 Brasseries;Restaurants
 Local Services;IT Services & Computer Repair
-Restaurants;Italian
+Tacos;Brasseries
 Food;Coffee & Tea
 Fast Food;Restaurants
-Mortgage Brokers;Home Services;Real Estate
-Brasseries;Restaurants
+Wat;Restaurants
+Brasseries;Home Services;Real Estate
+Taxes;Restaurants
+Brasseries;Burgers
