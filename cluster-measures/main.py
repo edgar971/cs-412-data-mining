@@ -60,15 +60,15 @@ def nmi(cluster, truth):
     return mutual_info / math.sqrt(hc * ht)
 
 
-def jaccard_similarity(labels1, labels2):
-    num_labels = len(labels1)
+def jaccard_similarity(cluster, truth):
+    num_labels = len(cluster)
     m11 = 0
     m10 = 0
     m01 = 0
 
     for i, j in itertools.combinations(range(num_labels), 2):
-        group1 = labels1[i] == labels1[j]
-        group2 = labels2[i] == labels2[j]
+        group1 = cluster[i] == cluster[j]
+        group2 = truth[i] == truth[j]
         if group1 and group2:
             m11 += 1
         elif group1 and not group2:
