@@ -2,7 +2,7 @@ import itertools
 import math
 
 
-def cluster_probability(cluster):
+def calculate_cluster_probability(cluster):
     cluster_sum = []
     cluster_len = float(len(cluster))
     cluster_names = list(set(cluster))
@@ -18,7 +18,7 @@ def cluster_probability(cluster):
 
 def entropy(cluster):
     entropy = 0
-    cluster_prob = cluster_probability(cluster)
+    cluster_prob = calculate_cluster_probability(cluster)
 
     for i in cluster_prob:
         entropy += i * math.log(i, 2)
@@ -26,13 +26,13 @@ def entropy(cluster):
     return entropy * (-1)
 
 
-def mutual_information(cluster, truth):
+def calculate_mutual_information(cluster, truth):
     cluster_len = float(len(cluster))
     sc = list(set(cluster))
     st = list(set(truth))
     mutual_info = 0
-    c_probability = cluster_probability(cluster)
-    truth_probability = cluster_probability(truth)
+    c_probability = calculate_cluster_probability(cluster)
+    truth_probability = calculate_cluster_probability(truth)
 
     probability_matrix = [[0 for x in range(len(sc))] for y in range(len(st))]
 
@@ -56,7 +56,7 @@ def mutual_information(cluster, truth):
 def nmi(cluster, truth):
     hc = entropy(cluster)
     ht = entropy(truth)
-    mutual_info = mutual_information(cluster, truth)
+    mutual_info = calculate_mutual_information(cluster, truth)
     return mutual_info / math.sqrt(hc * ht)
 
 
